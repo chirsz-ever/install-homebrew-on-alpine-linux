@@ -14,8 +14,6 @@ docker run -it --rm alpine:latest sh
 
 ## Prepare dependencies
 
-TODO: no curl
-
 ```sh
 apk add bash curl git libc6-compat sudo
 sed -i -- '1a\
