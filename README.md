@@ -20,7 +20,7 @@ TODO: no curl
 apk add bash curl git libc6-compat sudo
 sed -i -- '1a\
 case $1 in --version)\
-    echo "ldd 2.36"\
+    echo "ldd 2.16"\
     exit\
 esac' /usr/bin/ldd
 ln -s /bin/stat /usr/bin/stat
