@@ -1,6 +1,6 @@
 #!/bin/sh -e
 
-# just ignore -q
+# remove -q option from arguments, currently busybox does not support it.
 
 finished=
 first=1
@@ -15,11 +15,14 @@ for arg do
 
     case "$finished" in '')
         case "$arg" in
-        -q)
-            skip=1
-            ;;
         --)
             finished=1
+            ;;
+        -*q*)
+            arg="$(echo "$arg" | tr -d q)"
+            case "$arg" in -)
+                skip=1
+            esac
             ;;
         -*)
             ;;
