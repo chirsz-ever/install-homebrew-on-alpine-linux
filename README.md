@@ -81,3 +81,5 @@ NOTE:
 by busybox. You can use like `brew shellenv sh` to declare the shell type explicitly, or install `procps-ng` package.
 - `brew list` will fail, because it needs `ls` to support `-q` option, which is not supported by busybox. You can
 install `coreutils` package, or use [the patched ls script](./patched-ls.sh) to replace `/bin/ls`.
+- the uninstallation script will fail, because it needs `find` to support `-lname` filter, which is not supported by
+busybox. You can install `findutils` package to fix this.
