@@ -22,12 +22,6 @@ case $1 in --version)\
     exit\
 esac' /usr/bin/ldd
 ln -s /bin/stat /usr/bin/stat
-rm /bin/grep
-wget -O /bin/grep https://raw.githubusercontent.com/chirsz-ever/install-homebrew-on-alpine-linux/master/patched-grep.sh
-chmod +x /bin/grep
-rm /usr/bin/sort
-wget -O /usr/bin/sort https://raw.githubusercontent.com/chirsz-ever/install-homebrew-on-alpine-linux/master/patched-sort.sh
-chmod +x /usr/bin/sort
 ```
 
 Homebrew now can automatically download and install [Potable Ruby](https://github.com/Homebrew/homebrew-portable-ruby),
@@ -39,9 +33,6 @@ newer versions of Alpine Linux, `libc6-compat` is an alias for `gcompat`.
 The installation script would use `ldd` to check the glibc version, so we use `sed` to patch the `ldd` script.
 
 The installation script uses `/usr/bin/stat`, but Alpine Linux only has `/bin/stat`, so we create a symlink.
-
-The installation script uses `grep` and `sort` with options that are not supported by busybox, so we need to replace
-them with patched versions. You can also just install `coreutils` package.
 
 ## Add a normal user
 
